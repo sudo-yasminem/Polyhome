@@ -4,6 +4,7 @@ package com.yasm.polyhome
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
@@ -24,8 +25,7 @@ class RegisterActivity: AppCompatActivity() {
             insets
         }
 
-        goToLogin()
-        goToManage()
+        register()
     }
 
     private fun goToLogin(){
@@ -53,7 +53,8 @@ class RegisterActivity: AppCompatActivity() {
     private fun registerSuccess(responseCode: Int){
         if (responseCode == 200){
             println(responseCode)
-            finish()
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
         }
     }
 
@@ -61,11 +62,20 @@ class RegisterActivity: AppCompatActivity() {
 
         val buttonRegister = findViewById<Button>(R.id.button_creationcompte)
 
-        val loginRegister = findViewById<EditText>(R.id.id_creation).text.toString()
-        val passwordRegister = findViewById<EditText>(R.id.mdp_creation).text.toString()
-        val dataRegister = RegisterData(loginRegister,passwordRegister)
+        buttonRegister?.setOnClickListener {
 
-        Api().post<RegisterData>("https://polyhome.lesmoulinsdudev.com/api/users/register", dataRegister,::registerSuccess)
+            val loginRegister = findViewById<EditText>(R.id.id_creation).text.toString()
+            val passwordRegister = findViewById<EditText>(R.id.mdp_creation).text.toString()
+            val dataRegister = RegisterData(loginRegister, passwordRegister)
 
+            Log.d("API_DATA", "Login récupéré: '$loginRegister'")
+            Log.d("API_DATA", "Password récupéré: '$passwordRegister'")
+
+            Api().post<RegisterData>(
+                "https://polyhome.lesmoulinsdudev.com/api/users/register",
+                dataRegister,
+                ::registerSuccess
+            )
+        }
     }
 }

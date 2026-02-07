@@ -2,12 +2,16 @@ package com.yasm.polyhome
 
 
 import android.content.Intent
+import android.media.MediaCodec
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.androidtp2.Api
+import android.util.Log
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,16 +24,32 @@ class LoginActivity : AppCompatActivity() {
             insets
         }
 
-        goToManage()
-        goToRegister()
+        login()
+
     }
 
-    private fun goToManage(){
-        val button_manage = findViewById<Button>(R.id.button_connexion)
+    private fun loginSuccess(responseCode: Int, token_object: LoginDataResult?){
+        if(responseCode == 200){
+            Log.d("API_DEBUG", "Response code $responseCode")
+            intent = Intent(this, ManageActivity::class.java)
+            intent.putExtra("token", token_object?.token)
 
-        button_manage?.setOnClickListener {
-            val intent = Intent(this, ManageActivity::class.java)
             startActivity(intent)
+        }
+
+    }
+
+    private fun login(){
+        val buttonManage = findViewById<Button>(R.id.button_connexion)
+
+        buttonManage?.setOnClickListener {
+            val login = findViewById<EditText>(R.id.id_connexion).text.toString()
+            val loginPassword = findViewById<EditText>(R.id.mdp_connexion).text.toString()
+
+            val loginData = LoginData(login, loginPassword)
+
+            Api().post<LoginData, LoginDataResult>("https://polyhome.lesmoulinsdudev.com/api/users/auth", loginData, ::loginSuccess)
+
         }
 
     }
@@ -42,5 +62,11 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
+
+
+
+
+
 
 }

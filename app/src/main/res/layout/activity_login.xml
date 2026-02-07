@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text"
-            android:text="Identifiant"
+            android:hint="Identifiant"
             android:textColorHint="#9E9C9C" />
 
         <EditText
