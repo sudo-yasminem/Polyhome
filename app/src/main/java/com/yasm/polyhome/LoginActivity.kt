@@ -34,9 +34,28 @@ class LoginActivity : AppCompatActivity() {
             intent = Intent(this, ManageActivity::class.java)
             intent.putExtra("token", token_object?.token)
 
+            val intentLogin = Intent(this, ManageActivity::class.java)
+           //intentLogin.putExtra("loginSaisi",)
+            startActivity(intent)
+
             startActivity(intent)
         }
 
+    }
+
+    private fun handleLoginSuccess(login: String): (Int, LoginDataResult?) -> Unit {
+        return { responseCode, loginResult ->
+            if(responseCode==200 && loginResult != null){
+                val intent = Intent(this, ManageActivity::class.java)
+                intent.putExtra("token", loginResult.token)
+                intent.putExtra("loginSaisi", login)
+                startActivity(intent)
+            }
+            else{
+                Log.e("ERREUR_API", "Response Code: $responseCode")
+            }
+
+        }
     }
 
     private fun login(){
@@ -48,7 +67,9 @@ class LoginActivity : AppCompatActivity() {
 
             val loginData = LoginData(login, loginPassword)
 
-            Api().post<LoginData, LoginDataResult>("https://polyhome.lesmoulinsdudev.com/api/users/auth", loginData, ::loginSuccess)
+
+
+            Api().post<LoginData, LoginDataResult>("https://polyhome.lesmoulinsdudev.com/api/users/auth", loginData, handleLoginSuccess(login))
 
         }
 

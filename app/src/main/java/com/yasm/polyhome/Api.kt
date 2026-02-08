@@ -2,6 +2,7 @@ package com.example.androidtp2
 
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.yasm.polyhome.LoginDataResult
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
