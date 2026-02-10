@@ -8,40 +8,56 @@
     tools:context=".HomeActivity">
 
     <LinearLayout
+        android:id="@+id/layout_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:background="@drawable/wallpapers"
+        android:backgroundTint="#80FFFFFF"
+        android:backgroundTintMode="src_over"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_launcher_foreground" />
+            android:layout_height="339dp"
+            app:srcCompat="@drawable/gemini_generated_image_4xzab14xzab14xza_removebg_preview" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="593dp"
-            android:orientation="horizontal">
+            android:layout_height="236dp"
+            android:orientation="horizontal"
+            android:padding="15dp">
 
             <Button
                 android:id="@+id/button_seconnecter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="135dp"
+                android:layout_marginEnd="5dp"
                 android:layout_weight="1"
-                android:text="Se connecter" />
+                android:backgroundTint="@android:color/holo_blue_light"
+                android:text="Se connecter"
+                android:textColorLink="#429DD1FF" />
 
             <Button
-                android:id="@+id/button_creeruncompte"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/button_creeruncompte2"
+                android:layout_height="135dp"
+                android:layout_marginStart="5dp"
                 android:layout_weight="1"
+                android:backgroundTint="@android:color/holo_blue_light"
                 android:text="Créer un compte" />
+
         </LinearLayout>
 
         <TextView
             android:id="@+id/textView5"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="Fait par Yasmine et Cyrine :)" />
 
     </LinearLayout>
