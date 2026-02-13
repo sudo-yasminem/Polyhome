@@ -10,13 +10,24 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:background="@drawable/wallpapers"
+        android:backgroundTint="#80FFFFFF"
+        android:backgroundTintMode="src_over"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="20dp">
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Créer un compte" />
+            android:gravity="center"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:text="Créer un compte"
+            android:textColor="@color/black"
+            android:textSize="34sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/id_creation"
@@ -24,6 +35,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
             android:text="Identifiant" />
 
         <EditText
@@ -31,24 +44,41 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPassword" />
+            android:hint="Mot de passe"
+            android:inputType="textPassword"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp" />
 
         <Button
             android:id="@+id/button_creationcompte"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Créer un compte" />
+            android:backgroundTint="@android:color/holo_blue_light"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:text="Créer un compte"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Déjà un compte ?" />
+            android:gravity="center"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:text="Déjà un compte ?"
+            android:textSize="15sp" />
 
         <Button
             android:id="@+id/button_connexioncompte"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Connexion" />
+            android:backgroundTint="@android:color/holo_blue_light"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:text="Connexion"
+            android:textSize="16sp"
+            android:textStyle="bold" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
