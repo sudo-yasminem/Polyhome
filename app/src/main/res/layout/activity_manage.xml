@@ -10,54 +10,115 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:background="@drawable/wallpapers"
+        android:backgroundTint="#80FFFFFF"
+        android:backgroundTintMode="src_over"
+        android:orientation="vertical"
+        android:padding="20sp">
 
         <TextView
             android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Mes équipements" />
+            android:gravity="center"
+            android:paddingTop="15sp"
+            android:paddingBottom="15sp"
+            android:text="Mes équipements"
+            android:textSize="34sp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="152dp"
-            android:orientation="horizontal">
+            android:layout_height="215dp"
+            android:orientation="horizontal"
+            android:paddingTop="15sp"
+            android:paddingBottom="15sp">
 
             <Button
                 android:id="@+id/button_lights"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Lumières" />
+                android:backgroundTint="@android:color/holo_blue_light"
+                android:gravity="center"
+                android:padding="20sp"
+                android:paddingTop="15sp"
+                android:paddingBottom="15sp"
+                android:text="Lumières"
+                android:textSize="24sp" />
 
             <Button
                 android:id="@+id/button_garages"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Garage" />
+                android:backgroundTint="@android:color/holo_blue_light"
+                android:gravity="center"
+                android:padding="20sp"
+                android:paddingTop="15sp"
+                android:paddingBottom="15sp"
+                android:text="Garage"
+                android:textSize="24sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="215dp"
+            android:orientation="horizontal"
+            android:paddingTop="15sp"
+            android:paddingBottom="15sp">
 
             <Button
                 android:id="@+id/button_volets"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="volets" />
+                android:backgroundTint="@android:color/holo_blue_light"
+                android:gravity="center"
+                android:padding="20sp"
+                android:paddingTop="15sp"
+                android:paddingBottom="15sp"
+                android:text="volets"
+                android:textSize="24sp" />
 
             <Button
                 android:id="@+id/button_heaters"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="chauffage" />
+                android:backgroundTint="@android:color/holo_blue_light"
+                android:gravity="center"
+                android:padding="20sp"
+                android:paddingTop="15sp"
+                android:paddingBottom="15sp"
+                android:text="chauffage"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="215dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:paddingTop="15sp"
+            android:paddingBottom="15sp">
+
+            <Button
+                android:id="@+id/button_plus"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="@android:color/holo_blue_light"
+                android:gravity="center"
+                android:padding="20sp"
+                android:paddingTop="15sp"
+                android:paddingBottom="15sp"
+                android:text="+"
+                android:textSize="24sp" />
 
         </LinearLayout>
 
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
