@@ -2,6 +2,7 @@
 package com.yasm.polyhome
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
@@ -40,7 +41,7 @@ class ManageActivity: AppCompatActivity() {
 
     }
 
-    private fun listHouseSuccess(responseCode: Int,maisons: List<HouseData>?, tokenString: String){
+    private fun listHouseSuccess(responseCode: Int,maisons: List<HouseData>?){
         if(responseCode == 200 && maisons != null){
             Log.d("API_RESPONSE","Code reçu")
 
@@ -48,7 +49,7 @@ class ManageActivity: AppCompatActivity() {
                     house -> Log.d("API_RESPONSE","ID Maison: ${house.houseId} | Owner: ${house.owner}")
             }
 
-            listPeriph(tokenString) //Marche pas comme ça, il faut l'appeler ailleurs
+            //listPeriph(tokenString) //Marche pas comme ça, il faut l'appeler ailleurs
 
         }
         else{
@@ -60,8 +61,16 @@ class ManageActivity: AppCompatActivity() {
 
         val tag = "API_ACCESS"
 
-        if(responseCode == 200){
+        if(responseCode == 200 || responseCode == 409){
             Log.d(tag,"Accès Accordé: $responseCode")
+
+            val tokenString = intent.getStringExtra("token")
+
+            val intent_toPeriph = Intent(this, LightActivity::class.java)
+            intent_toPeriph.putExtra("token", tokenString)
+            startActivity(intent_toPeriph)
+
+            //finish ? à tester
         }
         else{
             Log.d(tag,"Erreur code: $responseCode")
@@ -88,29 +97,6 @@ class ManageActivity: AppCompatActivity() {
         Api().delete<DataAccess>("https://polyhome.lesmoulinsdudev.com/api/houses/683/users", dataAccess,  ::grantAccessSuccess, tokenString)
     }
 
-    private fun listPeriphSuccess(responseCode: Int, responsePeriph: PeriphResponseData?){
 
-        val tag = "API_PERIPH"
-
-        if(responseCode == 200 && responsePeriph != null){
-            Log.d(tag, "Code PeriphSucces: $responseCode")
-
-            val listePeripheriques = responsePeriph.peripheriques
-
-            listePeripheriques.forEach { periph ->
-                Log.d(tag, "Id: ${periph.id} / Type: ${periph.type} / Commandes: ${periph.availableCommands} / Openeing: ${periph.opening}")
-
-            }
-        }
-        else{
-            Log.d(tag, "Erreur Code: $responseCode")
-        }
-    }
-
-    private fun listPeriph(tokenString: String){
-
-        Api().get<PeriphResponseData>("https://polyhome.lesmoulinsdudev.com/api/houses/683/devices", ::listPeriphSuccess, tokenString)
-    }
-   //fonction Recup les periph de la maison
 
 }
