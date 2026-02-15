@@ -38,27 +38,35 @@
                 android:id="@+id/button_lights"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_blue_light"
+                android:drawableTop="@drawable/light_icon"
+                android:drawableTint="@color/white"
                 android:gravity="center"
                 android:padding="20sp"
                 android:paddingTop="15sp"
                 android:paddingBottom="15sp"
                 android:text="Lumières"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.ExtraLarge" />
 
             <Button
                 android:id="@+id/button_garages"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_blue_light"
+                android:drawableTop="@drawable/garage_icon"
+                android:drawableTint="@color/white"
                 android:gravity="center"
                 android:padding="20sp"
                 android:paddingTop="15sp"
                 android:paddingBottom="15sp"
                 android:text="Garage"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.ExtraLarge" />
         </LinearLayout>
 
         <LinearLayout
@@ -72,27 +80,34 @@
                 android:id="@+id/button_volets"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_blue_light"
+                android:drawableTop="@drawable/volet_icon"
                 android:gravity="center"
                 android:padding="20sp"
                 android:paddingTop="15sp"
                 android:paddingBottom="15sp"
-                android:text="volets"
-                android:textSize="24sp" />
+                android:text="Volets"
+                android:textSize="24sp"
+                app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.ExtraLarge" />
 
             <Button
                 android:id="@+id/button_heaters"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_blue_light"
+                android:drawableTop="@drawable/chauffage_icon"
+                android:drawableTint="@color/white"
                 android:gravity="center"
                 android:padding="20sp"
                 android:paddingTop="15sp"
                 android:paddingBottom="15sp"
-                android:text="chauffage"
-                android:textSize="24sp" />
+                android:text="Chauffages"
+                android:textSize="24sp"
+                app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.ExtraLarge" />
 
         </LinearLayout>
 
@@ -108,6 +123,7 @@
                 android:id="@+id/button_plus"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:backgroundTint="@android:color/holo_blue_light"
                 android:gravity="center"
