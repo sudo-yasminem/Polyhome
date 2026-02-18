@@ -78,36 +78,36 @@ class LightActivity : AppCompatActivity() {
             runOnUiThread {
                 val listViewLights = findViewById<ListView>(R.id.listview_lights)
 
-                // On crée l'adapter
+                //Creation de l'adapter
                 val adapterLights = object : ArrayAdapter<PeriphData>(this, R.layout.item_light, listLightsOnly) {
                     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-                        // 1. On récupère ou on crée la ligne
+                        
                         val row = convertView ?: layoutInflater.inflate(R.layout.item_light, parent, false)
 
-                        // 2. On récupère la lumière à cette position
+                       
                         val device = getItem(position)
 
-                        // 3. On lie les composants (Vérifie bien ces IDs dans ton item_light.xml)
+                        
                         val nameText = row.findViewById<TextView>(R.id.name_light)
                         val toggleSwitch = row.findViewById<Switch>(R.id.toggle_light)
 
                         if (device != null) {
                             nameText.text = device.id
 
-                            // On force l'état visuel du Switch (Power 1 = ON)
+                           
                             toggleSwitch.setOnCheckedChangeListener(null) // Sécurité
                             toggleSwitch.isChecked = (device.power == 1)
 
-                            // 4. On gère le clic sur le Switch
+                            
                             toggleSwitch.setOnClickListener {
-                                // On utilise le token de l'activité
+                               
                                 toggleLight(device, tokenCleanToToggle)
                             }
                         }
                         return row
                     }
                 }
-                // 5. On envoie l'adapter à la ListView
+               //On passe à la listView l'adapter
                 listViewLights.adapter = adapterLights
             }
 
@@ -178,6 +178,7 @@ class LightActivity : AppCompatActivity() {
             }
         }
     }
+
 
 
 }
