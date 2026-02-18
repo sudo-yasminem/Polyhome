@@ -5,7 +5,6 @@ plugins {
 
 android {
     namespace = "com.yasm.polyhome"
-    namespace = "com.elaramouny.polyhome"
     compileSdk {
         version = release(36)
     }

@@ -27,8 +27,9 @@
         <activity android:name=".RegisterActivity"/>
         <activity android:name=".ManageActivity"/>
         <activity android:name=".LightActivity"/>
-        <activity android:name="GarageActivity"/>
+        <activity android:name=".GarageActivity"/>
 
     </application>
+
 
 </manifest>

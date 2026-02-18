@@ -53,6 +53,7 @@ class GarageActivity : AppCompatActivity() {
             val toggleGarage = findViewById<Switch>(R.id.toggle_portegarage)
             val tokenCleanToToggle = intent.getStringExtra("token")?.trim()?.replace("\"", "")
 
+            //Pour que toggleGarageDoor accepte bien garage en optionnel
             garage?.let { garage ->
                 toggleGarage.setOnClickListener {
                     toggleGarageDoor(garage, tokenCleanToToggle)
@@ -79,7 +80,7 @@ class GarageActivity : AppCompatActivity() {
             Log.d("API_COMMAND", "Commande bien exécutée")
             val tokenStringUpdate = intent.getStringExtra("token")
             if (tokenStringUpdate != null) {
-                listPeriph(tokenStringUpdate)
+                listPeriph(tokenStringUpdate) // Update des états des périphériques à chaque commande
             }
         } else {
             Log.e("API_COMMAND", "Erreur code: $responseCode")
@@ -103,5 +104,6 @@ class GarageActivity : AppCompatActivity() {
             }
         }
     }
+
 
 }
