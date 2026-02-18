@@ -11,7 +11,6 @@ android {
 
     defaultConfig {
         applicationId = "com.yasm.polyhome"
-        applicationId = "com.elaramouny.polyhome"
         minSdk = 25
         targetSdk = 36
         versionCode = 1
