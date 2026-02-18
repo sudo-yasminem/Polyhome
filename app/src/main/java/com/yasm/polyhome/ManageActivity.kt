@@ -29,19 +29,23 @@ class ManageActivity: AppCompatActivity() {
         val loginSaisi = intent.getStringExtra("loginSaisi")
 
         val bouton_lumiere = findViewById<Button>(R.id.button_lights)
-
+        val bouton_garage = findViewById<Button>(R.id.button_garages)
 
         bouton_lumiere.setOnClickListener {
             if (token != null) {
                 listHouse(token)// token est un String
                 //grantAccessHouse(token, loginSaisi)
 
-
-
-
-
             } else {
                 Log.e("TOKEN_DEBUG", "Aucun token reçu")
+            }
+        }
+
+        bouton_garage.setOnClickListener {
+            if(token != null){
+                val intentToGarage = Intent(this, GarageActivity::class.java)
+                intentToGarage.putExtra("token", token)
+                startActivity(intentToGarage)
             }
         }
     }

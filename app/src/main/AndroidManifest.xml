@@ -15,18 +15,6 @@
         android:theme="@style/Theme.Polyhome">
 
         <activity
-            android:name=".ManageActivity"
-            android:exported="false" />
-        <activity
-            android:name=".HomeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".RegisterActivity"
-            android:exported="false" />
-        <activity
-            android:name=".LoginActivity"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -35,7 +23,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".LoginActivity"/>
+        <activity android:name=".RegisterActivity"/>
+        <activity android:name=".ManageActivity"/>
+        <activity android:name=".LightActivity"/>
+        <activity android:name="GarageActivity"/>
 
     </application>
 
