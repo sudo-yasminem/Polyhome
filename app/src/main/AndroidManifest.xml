@@ -12,10 +12,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.PolyHome">
-        <activity
-            android:name=".LightsActivity"
-            android:exported="false" />
+        android:theme="@style/Theme.Polyhome">
+
         <activity
             android:name=".ManageActivity"
             android:exported="false" />
@@ -37,10 +35,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity"/>
-        <activity android:name=".RegisterActivity"/>
-        <activity android:name=".ManageActivity"/>
-        <activity android:name=".LightActivity"/>
+
 
     </application>
 
