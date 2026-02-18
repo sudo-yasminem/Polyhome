@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun goToRegister(){
-        val button_register = findViewById<Button>(R.id.button_creeruncompte)
+        val button_register = findViewById<Button>(R.id.button_creeruncompte2)
 
         button_register?.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)

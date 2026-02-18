@@ -3,8 +3,10 @@ package com.yasm.polyhome
 
 
 import android.content.Intent
+import android.hardware.lights.Light
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -26,30 +28,31 @@ class ManageActivity: AppCompatActivity() {
         val token = intent.getStringExtra("token")
         val loginSaisi = intent.getStringExtra("loginSaisi")
 
+        val bouton_lumiere = findViewById<Button>(R.id.button_lights)
 
 
-        if(token != null){
-            listHouse(token)// token est un String
-            grantAccessHouse(token, loginSaisi)
+        bouton_lumiere.setOnClickListener {
+            if (token != null) {
+                listHouse(token)// token est un String
+                //grantAccessHouse(token, loginSaisi)
 
 
 
+
+
+            } else {
+                Log.e("TOKEN_DEBUG", "Aucun token reçu")
+            }
         }
-        else{
-            Log.e("TOKEN_DEBUG", "Aucun token reçu")
-        }
-
     }
 
     private fun listHouseSuccess(responseCode: Int,maisons: List<HouseData>?){
         if(responseCode == 200 && maisons != null){
             Log.d("API_RESPONSE","Code reçu")
 
-            maisons.forEach{
-                    house -> Log.d("API_RESPONSE","ID Maison: ${house.houseId} | Owner: ${house.owner}")
+            maisons.forEach { house ->
+                Log.d("API_RESPONSE", "ID Maison: ${house.houseId} | Owner: ${house.owner}")
             }
-
-            //listPeriph(tokenString) //Marche pas comme ça, il faut l'appeler ailleurs
 
         }
         else{
@@ -65,12 +68,6 @@ class ManageActivity: AppCompatActivity() {
             Log.d(tag,"Accès Accordé: $responseCode")
 
             val tokenString = intent.getStringExtra("token")
-
-            val intent_toPeriph = Intent(this, LightActivity::class.java)
-            intent_toPeriph.putExtra("token", tokenString)
-            startActivity(intent_toPeriph)
-
-            //finish ? à tester
         }
         else{
             Log.d(tag,"Erreur code: $responseCode")
@@ -80,8 +77,12 @@ class ManageActivity: AppCompatActivity() {
 
     private fun listHouse(tokenString: String){
 
-        Api().get<List<HouseData>>("https://polyhome.lesmoulinsdudev.com/api/houses",::listHouseSuccess,
-            tokenString)
+        Api().get<List<HouseData>>("https://polyhome.lesmoulinsdudev.com/api/houses",{ responseCode, maisons ->
+            val intentToPeriph = Intent(this, LightActivity::class.java)
+            intentToPeriph.putExtra("token", tokenString)
+            startActivity(intentToPeriph)
+
+        },tokenString)
 
     }
 

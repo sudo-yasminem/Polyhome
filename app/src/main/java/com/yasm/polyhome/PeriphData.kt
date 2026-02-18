@@ -4,5 +4,6 @@ data class PeriphData(
     val id: String,
     val type: String,
     val availableCommands: List<String>,
-    val opening: Int
+    val opening: Int? = null,
+    val power: Int? = null
 )
