@@ -1,6 +1,6 @@
 # Projet PolyHome
 
-![Logo_Polyhome](app/src/main/res/drawable-xxhdpi/gemini_generated_image_4xzab14xzab14xza_removebg_preview.png)
+![Logo_Polyhome](app/src/main/res/drawable-xxhdpi/logo_polyhome.png)
 
 Ce projet consiste à créer une application permettant de **controler les équipements de notre maison** à distance. Par exemple, il est possible d'allumer et éteindre les lumières, d'ouvrir et fermer les volets ou la porte du garage.
 
