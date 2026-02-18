@@ -5,12 +5,14 @@ plugins {
 
 android {
     namespace = "com.yasm.polyhome"
+    namespace = "com.elaramouny.polyhome"
     compileSdk {
         version = release(36)
     }
 
     defaultConfig {
         applicationId = "com.yasm.polyhome"
+        applicationId = "com.elaramouny.polyhome"
         minSdk = 25
         targetSdk = 36
         versionCode = 1
