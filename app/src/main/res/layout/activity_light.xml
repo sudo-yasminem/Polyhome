@@ -2,25 +2,36 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:id="@+id/light"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/wallpapers"
+    android:backgroundTint="#80FFFFFF"
+    android:backgroundTintMode="src_over">
 
-    <TextView
-        android:id="@+id/text_light"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Lumières"
-        android:textSize="34sp"
-        tools:layout_editor_absoluteX="31dp"
-        tools:layout_editor_absoluteY="41dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <ListView
-        android:id="@+id/listview_lights"
-        android:layout_width="409dp"
-        android:layout_height="596dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintTop_toBottomOf="@+id/text_light"
-        tools:layout_editor_absoluteX="1dp" />
+        <TextView
+            android:id="@+id/text_light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingTop="15sp"
+            android:paddingBottom="15sp"
+            android:text="Lumières"
+            android:textColor="@color/black"
+            android:textSize="34sp"
+            android:textStyle="bold" />
+
+        <ListView
+            android:id="@+id/listview_lights"
+            android:layout_width="409dp"
+            android:layout_height="596dp"
+            android:layout_marginTop="40dp" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
